@@ -1,6 +1,6 @@
 # Golang JWT Login Server
 
-This is a starter project that demonstrates the features of the following Golang related stack.
+This is a starter project that demonstrates the features of the following Golang related stack. Testing code included
 
 ## Backend
 - golang-migrate for sql migrations - [github.com/golang-migrate/migrate](https://github.com/golang-migrate/migrate)
