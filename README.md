@@ -42,4 +42,4 @@ npm start
 
 # Screenshots
 
-![Alt text](/screenshots/screenshot_1.png?raw=true width="800")
+![](/screenshots/screenshot_1.png?raw=true width=800)
