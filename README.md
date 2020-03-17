@@ -17,29 +17,29 @@ This is a starter project that demonstrates the features of the following Golang
 - react-router-dom
 
 # React Frontend Installation
-`
+```
 cd react_frontend/react-material
 npm install
-`
+```
 
 # Usage
 
 start postgresql db in container 
-`
+```
 docker-compose up postgresql
-`
+```
 
 start golang server via script
-`
+```
 bash start_testserver.sh # ./start_testserver.sh
-`
+```
 
 compile and start frontend server
-`
+```
 cd react_frontend/react-materail
 npm start
-`
+```
 
 # Screenshots
 
-![Alt text](/screenshots/screenshot_1.png?raw=true "Sign Up Page")
+![Alt text](/screenshots/screenshot_1.png?raw=true "Sign Up Page" | width=800)
