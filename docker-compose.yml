@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  postgresql:
+    container_name: postgresql
+    hostname: postgresql
+    privileged: true
+    image: postgres:12.2-alpine
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    volumes:
+      - ./db_data/test_db:/var/lib/postgresql/data
+      - ./db_init:/docker-entrypoint-initdb.d/
+
+networks:
+  backend:
+    driver: "bridge"

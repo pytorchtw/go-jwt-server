@@ -1,0 +1,8 @@
+db:
+  dbname: "docker"
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  pass: "postgres123"
+  schema: "public"
+  sslmode: "disable"

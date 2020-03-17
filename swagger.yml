@@ -1,0 +1,99 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: JWT Server
+schemes:
+  - http
+basePath: /api
+paths:
+  /token:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - token
+      operationId: createToken
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/user"
+      responses:
+        201:
+          description: Created
+          schema:
+            $ref: "#/definitions/user"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/error"
+  /user:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - user
+      operationId: create
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: "#/definitions/user"
+      responses:
+        201:
+          description: Created
+          schema:
+            $ref: "#/definitions/user"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/error"
+  /hello:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - name: name
+          required: false
+          type: string
+          in: query
+          description: defaults to World if not given
+      operationId: getGreeting
+      responses:
+        200:
+          description: returns a greeting
+          schema:
+            $ref: "#/definitions/user"
+definitions:
+  user:
+    type: object
+    required:
+      - email
+      - password
+    properties:
+      id:
+        type: integer
+        format: int64
+        readOnly: true
+      token:
+        type: string
+      email:
+        type: string
+        minLength: 1
+      password:
+        type: string
+        minLength: 1
+  error:
+    type: object
+    required:
+      - message
+    properties:
+      code:
+        type: integer
+        format: int64
+      message:
+        type: string

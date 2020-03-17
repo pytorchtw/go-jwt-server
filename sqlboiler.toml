@@ -1,0 +1,9 @@
+[psql]
+  dbname  = "docker"
+  host    = "localhost"
+  port    = 5432
+  user    = "postgres"
+  pass    = "postgres123"
+  schema  = "test"
+  sslmode = "disable"
+  blacklist = ["migrations", "other"]

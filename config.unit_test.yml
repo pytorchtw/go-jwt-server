@@ -1,0 +1,8 @@
+env: "unit_test"
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  pass: "postgres123"
+  dbname: "docker"
+  sslmode: "disable"
