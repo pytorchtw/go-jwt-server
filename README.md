@@ -9,6 +9,7 @@ This is a starter project that demonstrates the features of the following Golang
 - jwt-go - [github.com/dgrijalva/jwt-go](https://github.com/dgrijalva/jwt-go)
 - postgresql in docker container
 - docker, docker-compose
+- 
 
 ## Frontend
 - react, react-hooks
