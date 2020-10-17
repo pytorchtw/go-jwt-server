@@ -85,7 +85,8 @@ func resetDB(db *sql.DB, schemaName string) error {
 		return err
 	}
 
-	m, err := migrate.NewWithDatabaseInstance("file://"+utils.Basepath+"/db/migrations", "postgres", driver)
+	//m, err := migrate.NewWithDatabaseInstance("file://"+utils.Basepath+"/db/migrations", "postgres", driver)
+	m, err := migrate.NewWithDatabaseInstance("file://./db/migrations", "postgres", driver)
 	if err != nil {
 		return err
 	}
@@ -168,7 +169,7 @@ func setupDB() (*sql.DB, error) {
 		return db, nil
 
 	} else {
-		panic("cannot find server environment to execute")
+		panic("missing environment config file to execute")
 	}
 	return nil, nil
 }
@@ -198,9 +199,9 @@ func configureAPI(api *operations.JwtAPI) http.Handler {
 	api.TxtProducer = runtime.TextProducer()
 
 	/*
-		api.KeyAuth = func(token string) (*models.Principal, error) {
+		api.KeyAuth = func(token string) (*db_models.Principal, error) {
 			if token == "abcdefuvwxyz" {
-				prin := models.Principal(token)
+				prin := db_models.Principal(token)
 				return &prin, nil
 			}
 			api.Logger("Access attempt with incorrect api key auth: %s", token)

@@ -11,9 +11,7 @@ import (
 	"github.com/pytorchtw/go-jwt-server/gen/models"
 	"github.com/pytorchtw/go-jwt-server/gen/restapi"
 	"github.com/pytorchtw/go-jwt-server/gen/restapi/operations"
-	"github.com/pytorchtw/go-jwt-server/utils"
 	"io/ioutil"
-
 	"log"
 	"math/rand"
 	"net"
@@ -127,6 +125,7 @@ func Test_setup(t *testing.T) {
 
 	os.Setenv("CONFIG_FILE", "config.unit_test")
 	os.Setenv("TEST_DB_SCHEMA", schemaName)
+
 	testManager.api = operations.NewJwtAPI(swaggerSpec)
 	testManager.server = restapi.NewServer(testManager.api)
 	testManager.server.ConfigureAPI()
@@ -138,7 +137,7 @@ func Test_setup(t *testing.T) {
 		t.Fatalf("error getting db instance data, %s", err.Error())
 	}
 
-	m, err := migrate.NewWithDatabaseInstance("file://"+utils.Basepath+"/db/migrations", "postgres", driver)
+	m, err := migrate.NewWithDatabaseInstance("file://../../db/migrations", "postgres", driver)
 	if err != nil {
 		t.Fatalf("error getting db instance data, %s", err.Error())
 	}
